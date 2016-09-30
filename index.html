@@ -6,13 +6,41 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        console.log("Working?!?!");
-      };
+        var sender = document.getElementsByClassName("send");
+        for (var i = 0; i < sender.length; i++) {
+        	for (var j = 0; j < window.geemails.length; j++) {
+        		sender[i].innerHTML = window.geemails[j].sender; 
+        	}
+        }
+      }
     </script>
 	</head>
 	<body>
+		<h1 id="obj0">Gee-Mail</h1>
 		<div class="container" id="main">
-			Build Me!
+			<table>
+  				<tr>
+				    <th>Sender</th>
+				    <th>Subject</th>
+				    <th>Date</th>
+  				</tr>
+				<tr>
+				    <td class="send">sender 1</td>
+				    <td>subject 1</td>
+				    <td>Date 1</td>
+				</tr>
+				<tr>
+				    <td class="send">sender 2</td>
+				    <td>subject 2</td>
+				    <td>Date 2</td>
+				  </tr>
+				 <tr>
+				    <td class="send">sender 3</td>
+				    <td>subject 3</td>
+				    <td>Date 3</td>
+				  </tr>
+				</table>
+
 		</div>
 	</body>
 </html>
