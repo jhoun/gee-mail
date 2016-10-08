@@ -9,17 +9,14 @@
 
         //creates the table header
         var senderHeader = document.createElement("th");
-		senderHeader.id = "senderStuff"
 		senderHeader.innerHTML = "Sender";
 		senderTable.appendChild(senderHeader);
 
 		var subjectHeader = document.createElement("th");
-		subjectHeader.id = "subjectStuff"
 		subjectHeader.innerHTML = "Subject";
 		subjectTable.appendChild(subjectHeader);
 
 		var dateHeader = document.createElement("th");
-		dateHeader.id = "subjectStuff"
 		dateHeader.innerHTML = "Date";
 		dateTable.appendChild(dateHeader);
 
@@ -27,44 +24,40 @@
         
         //acesses data from window.geemails
         for (var i = 0; i < window.geemails.length; i++) {
-        	var senderRow = document.createElement('tr');
+        	
+        	var aRow = document.createElement("tr");
+        	aRow.className = "rows";
+        	main.appendChild(aRow);
+
+        	var senderRow = document.createElement('td');
    			senderRow.className = 'from';
    			senderRow.innerHTML = window.geemails[i].sender;
-   			
+   			aRow.appendChild(senderRow);
 
-   			var subjectRow = document.createElement('tr');
+   			var subjectRow = document.createElement('td');
    			subjectRow.className = 'subj';
    			subjectRow.innerHTML = window.geemails[i].subject;
-   			
+   			aRow.appendChild(subjectRow);
 
-   			var dateRow = document.createElement('tr');
+   			var dateRow = document.createElement('td');
    			dateRow.className = 'dater';
    			dateRow.innerHTML = window.geemails[i].date;
-   			
+   			aRow.appendChild(dateRow);
 
-   			var bodyRow = document.createElement('tr');
+   			//the message row
+   			var msgRow = document.createElement('tr');
+   			msgRow.className = "rowUnder";
+   			aRow.appendChild(msgRow);
+
+   			var bodyRow = document.createElement('td');
    			bodyRow.className = 'bod';
    			bodyRow.innerHTML = window.geemails[i].body;
+   			msgRow.appendChild(bodyRow);
    			
         	
         }
-    	
-        function eachRow(sender, subject, date) {
-        	this.sender = sender;
-        	this.subject = subject;
-        	this.date = date;
-        }
-    	var myArray = new Array();
-    	myArray[0] = new eachRow(window.geemails[0].sender, window.geemails[0].subject, window.geemails[0].date);
-    	myArray[1] = new eachRow(window.geemails[1].sender, window.geemails[1].subject, window.geemails[1].date);
-
-    	var row = document.createElement('tr');
-    	row.innerHTML = myArray;
-    	senderTable.appendChild(row);
-
-    	console.log(myArray);
-
-    	var personSent = document.getElementsByClassName('email');
+    
+    	var personSent = document.getElementsByClassName('rows');
     	for (var i = 0; i < personSent.length; i++) {
     		personSent[i].addEventListener('click', show);
     	}
@@ -77,19 +70,26 @@
     			showMessage.style.display = "none";
     		}
     	}
+
+    	var x = document.getElementById('all');
+    	console.log(x);
       }
     </script>
 	</head>
 	<body>
 		<h1>Gee-Mail</h1>
-		<div class="container" id="main">
-			<table >
-				<tr class="email">
+		<div class="container">
+			<table id="all">
+				<thead>
+				<tr>
 				    <th id="senderTable"></th> 
 				    <th id="subjectTable"></th>
 				    <th id="dateTable"></th>
-				    <th id="bodyTable"></th>
 				</tr>
+				<tbody id ="main">
+					
+				</tbody>
+				
 			</table>
 
 
