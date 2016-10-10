@@ -46,24 +46,31 @@
 
    			//the message row
    			var msgRow = document.createElement('tr');
-   			msgRow.className = "rowUnder";
-   			aRow.appendChild(msgRow);
+   			msgRow.className = "rows2";
+   			main.appendChild(msgRow);
 
    			var bodyRow = document.createElement('td');
-   			bodyRow.className = 'bod';
+   			bodyRow.className = 'msg';
    			bodyRow.innerHTML = window.geemails[i].body;
    			msgRow.appendChild(bodyRow);
    			
+
         	
         }
-    
-    	var personSent = document.getElementsByClassName('rows');
+         
+         //places body message under all columns
+         var nodeList = document.getElementsByTagName("td");
+         for (var i = 3; i < nodeList.length; i+=4) {
+         nodeList[i].colSpan = "3";
+     		}	
+
+    	var personSent = document.getElementsByClassName("rows2")
     	for (var i = 0; i < personSent.length; i++) {
-    		personSent[i].addEventListener('click', show);
+    		personSent[i].addEventListener('click', show, false);
     	}
 
     	function show() {
-    		var showMessage = this.querySelectorAll('.bod')[0];
+    		var showMessage = this.querySelectorAll('.msg')[0];
     		if (showMessage.style.display === "none") {
     			showMessage.style.display = "block";
     		}else {
@@ -86,7 +93,8 @@
 				    <th id="subjectTable"></th>
 				    <th id="dateTable"></th>
 				</tr>
-				<tbody id ="main">
+				<tbody id ="main" class="check">
+
 					
 				</tbody>
 				
