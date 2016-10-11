@@ -25,6 +25,7 @@
         //acesses data from window.geemails
         for (var i = 0; i < window.geemails.length; i++) {
         	
+        	//first row
         	var aRow = document.createElement("tr");
         	aRow.className = "rows";
         	main.appendChild(aRow);
@@ -44,7 +45,7 @@
    			dateRow.innerHTML = window.geemails[i].date;
    			aRow.appendChild(dateRow);
 
-   			//the message row
+   			//2nd body message row
    			var msgRow = document.createElement('tr');
    			msgRow.className = "rows2";
    			main.appendChild(msgRow);
@@ -64,6 +65,8 @@
          nodeList[i].colSpan = "3";
      		}	
 
+
+     	//the click event
     	var personSent = document.getElementsByClassName("rows2")
     	for (var i = 0; i < personSent.length; i++) {
     		personSent[i].addEventListener('click', show, false);
@@ -77,14 +80,15 @@
     			showMessage.style.display = "none";
     		}
     	}
-
+    	//displays full table in the console
     	var x = document.getElementById('all');
     	console.log(x);
       }
     </script>
 	</head>
 	<body>
-		<h1>Gee-Mail</h1>
+		<h1><img src="img/geemail.jpg"></h1>
+		
 		<div class="container">
 			<table id="all">
 				<thead>
@@ -93,9 +97,7 @@
 				    <th id="subjectTable"></th>
 				    <th id="dateTable"></th>
 				</tr>
-				<tbody id ="main" class="check">
-
-					
+				<tbody id ="main">
 				</tbody>
 				
 			</table>

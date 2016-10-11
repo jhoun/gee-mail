@@ -1,3 +1,21 @@
+html {
+	margin: 25px;
+}
+
+.container {
+	text-align: center;
+}
+
+.rows {
+	font-family: Arial;
+}
 .msg {
 	display: non;
+	color: blue;
+	font-family: Arial;
 }
+
+h1 {
+	text-align: center;
+}
+
